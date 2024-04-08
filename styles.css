@@ -1,0 +1,473 @@
+/* Global variables for colors, text properties, and aesthetics */
+:root {
+    --max-image-size: 300px; 
+    --primary-color: #000000; /* Primary color for text and backgrounds */
+    --secondary-color: #fff; /* Secondary color for text and accents */
+  --font-family: 'Montserrat', sans-serif;
+    --h1-font-size: 4rem; 
+    --h2-font-size: 2.5rem; 
+    --h3-font-size: 1.2rem; 
+    --container-width: 85%; /* width for containers */
+    --max-container-width: 1200px; /* Maximum width for containers */
+    --padding: 20px; /* padding for containers */
+    --transition-duration: 0.3s;
+  
+  
+  
+    --large-image-description-font-size: 16px; 
+    --large-image-description-line-height: 1.5;
+    --large-image-description-color: #fff; 
+    --large-image-description-font-family: Arial, sans-serif; 
+    --large-image-description-font-weight: normal; 
+    --large-image-description-text-align: left; 
+    --large-image-description-letter-spacing: normal; 
+    --large-image-description-text-transform: none; 
+    --large-image-description-text-decoration: none; 
+  
+  }
+  
+  
+  body {
+    font-family: var(--font-family);
+  }
+  
+  /* Heading styles */
+ h1 {
+    font-size: var(--h1-font-size);
+    font-weight: 10; /* Adjust font weight to make it thinner */
+}
+  
+  h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 10; /* Adjust font weight to make it thinner */
+  }
+  
+  h3 {
+    font-size: var(--h3-font-size);
+  }
+  
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container-width);
+    margin:  auto;
+    padding: var(--padding);
+    transition: transform var(--transition-duration) ease;
+  }
+  
+
+/* Navigation */
+nav {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+nav ul {
+  text-align: center;
+  list-style-type: none;
+}
+
+nav ul li {
+  padding: 0px 10px;
+  display: inline;
+}
+
+nav ul li a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s, border-color 0.3s; 
+  
+  border: 3px solid rgba(255, 255, 255, 0.1);  
+ 
+  padding: 5px 10px; /*  boxes */
+}
+
+nav ul li a:hover {
+  color: red; /* Change text color to red on hover */
+  border-color: red; /* Change border color to red on hover */
+}
+
+
+
+/* Home section */
+.home-section {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 800px; /* Maximum width for slideshow container */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative; /* Change position to relative */
+  width: 100%;
+  max-width: 1200px; /* Maximum width of 800px for images */
+  height: 100%;
+  display: none; /* Hide slides by default */
+}
+
+.slide img {
+  z-index: 1; 
+  max-width: 800px; /* Set maximum width for the image */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any extra space below image */
+  margin: 0 auto; /* Center image horizontally */
+  object-fit: contain; /* Ensure image fits within container */
+}
+
+
+.slide:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://a.1stdibscdn.com/stanislaw-szukalski-paintings-the-incorruptable-for-sale/a_130/1547158733602/PERF_master.jpg'); 
+  background-position: center; /* Center the background horizontally */
+  background-size: cover; /* Cover the entire slide */
+  opacity: 0.5; /* Set opacity for the background */
+  z-index: -1; /* Behind the image */
+}
+
+.slide-number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+}
+
+.slide-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff; 
+  font-size: 24px;
+  font-weight: bold; /* Make the text bold */
+}
+
+
+
+
+ 
+ /* Gallery section */
+.gallery-section {
+  padding: 40px 0;
+  overflow: hidden; /* Hide overflow content */
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0px;
+  padding: 20px; /* Add padding to prevent horizontal scrollbar */
+}
+
+.gallery img {
+  /* Ensure images take up 100% of their container */
+  width: 100%;
+  height: 300px; /* Fixed height for all images */
+  /* Limit the maximum width of images */
+  max-width: 300px;
+  /* Maintain aspect ratio and position within the container */
+  object-fit: cover; /* Adjust this based on your preference */
+  /* Define transition effect */
+  transition: transform var(--transition-duration) ease;
+}
+
+.gallery img:hover {
+  /* Apply semi-transparent red overlay on hover */
+  filter: opacity(75%);
+}
+
+
+
+
+.large-image-container {
+  display: flex; /* Use flexbox to arrange the image and description side by side */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+#largeViewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#largeViewer #largeImage {
+  max-width: 50vw; /* Adjust the maximum width as needed */
+  max-height: 90vh; /* Adjust the maximum height as needed, using viewport height */
+}
+
+.large-image-description {
+  
+  margin-left: 20px; /* Adjust margin as needed */
+  font-size: var(--large-image-description-font-size);
+  line-height: var(--large-image-description-line-height);
+  color: var(--large-image-description-color);
+  font-family: var(--large-image-description-font-family);
+  font-weight: var(--large-image-description-font-weight);
+  text-align: var(--large-image-description-text-align);
+  letter-spacing: var(--large-image-description-letter-spacing);
+  text-transform: var(--large-image-description-text-transform);
+  text-decoration: var(--large-image-description-text-decoration);
+}
+
+
+  
+
+/* About section styles */
+.about-section {
+  padding: 0x 0;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.about-description {
+  padding: 10px 20px;
+  flex: 1;
+}
+
+.expandable {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+}
+
+
+.expand-button {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.expand-button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-color: var(--primary-color);
+}
+
+
+.expandable-content {
+  flex-grow: 1;
+  display: none;
+}
+
+.expandable-content.expanded {
+  display: block;
+}
+
+.expandable-content h2 {
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+
+.expandable-content p {
+   padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.about-description h3 {
+  font-size: 2rem;
+}
+
+.about-description h1 {
+  font-size: 1rem;
+}
+
+
+.about-image img {
+  margin-top: 50px; /* Adjust margin-top as needed */
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  max-width: 400px; /* Limit the maximum width of the image */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the entire container */
+  transition: transform var(--transition-duration) ease; /* Define transition effect */
+}
+
+
+
+
+
+
+  
+  /* Contact section */
+  .contact-section {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .contact-section form {
+    margin-top: 20px;
+  }
+  
+  .contact-section input,
+  .contact-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-section button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contact-section button:hover {
+    background-color: #555;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+
+
+/* Hamburger menu styles */
+.hamburger-menu {
+  color: white; /* Set color to white */
+  background-color: black; /* Set background color to black */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+.hamburger-menu:hover {
+  background-color: red; /* Change background color to red on hover */
+}
+
+
+  
+  .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #fff; 
+    margin: 4px ;
+
+  }
+  
+
+
+
+  /* Drawer styles */
+  .drawer {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: left var(--transition-duration) ease;
+    z-index: 999;
+  }
+  
+  .drawer.show {
+    left: 0;
+  }
+  
+  .drawer ul {
+    list-style-type: none;
+    padding: 60px 60px; /* Adjust padding for top and bottom spacing */
+  }
+  
+  .drawer ul li {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .drawer ul li a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s, border-color 0.3s; 
+  
+  border: 3px solid rgba(255, 255, 255, 0.1);  
+ 
+  padding: 5px 10px; /*  boxes */
+    
+  }
+  
+  .drawer ul li a:hover {
+  color: red; /* Change text color to red on hover */
+  border-color: red; /* Change border color to red on hover */
+}
+
+  
+  
+  /* Filter buttons */
+  .filter-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: transparent; /* Remove background color */
+    color: var(--primary-color); /* Set text color */
+    border: 2px solid var(--primary-color); /* Add border with primary color */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .filter-button:hover {
+    background-color: var(--primary-color); /* Change background color on hover */
+    color: var(--secondary-color); /* Change text color on hover */
+  
+}
+
+.top-of-page-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: #000000;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+} 
